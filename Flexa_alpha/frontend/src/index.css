@@ -1,0 +1,208 @@
+@tailwind base;        /* Import Tailwind's base styles (normalize, etc.) */
+@tailwind components;  /* Import Tailwind's component styles */
+@tailwind utilities;   /* Import Tailwind's utility classes */
+
+/* -------------------- Root variables and fonts -------------------- */
+@layer base {
+  :root {
+    /* Color variables using HSL */
+    --background: 0 0% 100%;           /* Main background color (white) */
+    --foreground: 0 0% 3.9%;           /* Main text color (almost black) */
+    --card: 0 0% 100%;                 /* Card background (white) */
+    --card-foreground: 0 0% 3.9%;      /* Card text color */
+    --popover: 0 0% 100%;              /* Popover background (white) */
+    --popover-foreground: 0 0% 3.9%;   /* Popover text color */
+    --primary: 0 0% 9%;                /* Primary color (dark gray/black) */
+    --primary-foreground: 0 0% 98%;    /* Text color on primary elements */
+    --secondary: 0 0% 96.1%;           /* Secondary background (very light gray) */
+    --secondary-foreground: 0 0% 9%;   /* Text color for secondary elements */
+    --muted: 0 0% 96.1%;               /* Muted background (light gray) */
+    --muted-foreground: 0 0% 45.1%;    /* Muted text (medium gray) */
+    --accent: 0 0% 96.1%;              /* Accent background */
+    --accent-foreground: 0 0% 9%;      /* Accent text */
+    --destructive: 0 84.2% 60.2%;      /* Destructive actions color (red/orange) */
+    --destructive-foreground: 0 0% 98%;/* Text color for destructive actions */
+    --border: 0 0% 89.8%;              /* Default border color */
+    --input: 0 0% 89.8%;               /* Input field background */
+    --ring: 0 0% 3.9%;                 /* Focus ring color */
+    --chart-1: 12 76% 61%;             /* Chart colors (hue, saturation, lightness) */
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;                  /* Border radius for rounded corners */
+
+    /* Font and text smoothing */
+    font-family: Inter, Avenir, Helvetica, Arial, sans-serif; 
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Dark mode overrides */
+  .dark {
+    --background: 0 0% 3.9%;           /* Dark background */
+    --foreground: 0 0% 98%;            /* Light text for dark mode */
+    --card: 0 0% 3.9%;                  /* Dark card background */
+    --card-foreground: 0 0% 98%;        /* Light card text */
+    --popover: 0 0% 3.9%;               /* Dark popover background */
+    --popover-foreground: 0 0% 98%;     /* Light popover text */
+    --primary: 0 0% 98%;                /* Primary elements in dark mode (white) */
+    --primary-foreground: 0 0% 9%;      /* Text on primary elements (dark) */
+    --secondary: 0 0% 14.9%;            /* Dark secondary background */
+    --secondary-foreground: 0 0% 98%;   /* Light secondary text */
+    --muted: 0 0% 14.9%;                /* Dark muted background */
+    --muted-foreground: 0 0% 63.9%;     /* Medium gray text */
+    --accent: 0 0% 14.9%;               /* Dark accent */
+    --accent-foreground: 0 0% 98%;      /* Light accent text */
+    --destructive: 0 62.8% 30.6%;       /* Darker red for destructive actions */
+    --destructive-foreground: 0 0% 98%; /* Light text on destructive buttons */
+    --border: 0 0% 14.9%;               /* Dark borders */
+    --input: 0 0% 14.9%;                /* Dark input background */
+    --ring: 0 0% 83.1%;                 /* Focus ring in dark mode */
+    /* Chart colors adjusted for dark mode */
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+
+  /* -------------------- Base styles -------------------- */
+  *, *::before, *::after {
+    border-color: hsl(var(--border));   /* Default border color for all elements */
+  }
+
+  body {
+    @apply bg-[hsl(var(--background))] text-[hsl(var(--foreground))]; /* Apply bg/text from variables */
+  }
+}
+
+/* -------------------- Product & Images -------------------- */
+.product-image {
+  max-width: 400px; /* Limit product image width */
+  width: 100%;      /* Make it responsive */
+}
+
+img.large {
+  max-width: 100%;  /* Ensure large images don’t overflow */
+}
+
+img.thumbnail {
+  height: 80px;     /* Thumbnail images fixed height */
+}
+
+.small-container {
+  max-width: 600px; /* Restrict container width */
+}
+
+/* -------------------- Rating -------------------- */
+.rating span {
+  color: #ffc000;   /* Gold stars for rating */
+}
+
+/* -------------------- Checkout Steps -------------------- */
+.checkout-steps > div {
+  border-bottom: 0.2rem solid #a0a0a0; /* Inactive step underline */
+  color: #a0a0a0;                      /* Inactive step text color */
+}
+
+.checkout-steps > div.active {
+  border-bottom: 0.2rem solid #f08000; /* Active step underline (orange) */
+  color: #f08000;                      /* Active step text color */
+}
+
+/* -------------------- Buttons -------------------- */
+.btn-primary,
+.btn-outline-primary {
+  background-color: #f0c040; /* Marigold button background */
+  color: #000000;            /* Black text */
+}
+
+/* -------------------- Header -------------------- */
+.navbar-brand {
+  font-weight: bold; /* Make brand text bold */
+  font-size: 1.8rem; /* Larger text */
+}
+
+a.header-link,
+.header-link > a {
+  border: 1px rgb(33, 37, 41) solid; /* Dark border */
+  border-radius: 2px;                /* Slight rounding */
+  color: white;                       /* White text */
+  font-weight: bold;                  /* Bold text */
+  text-decoration: none;              /* Remove underline */
+}
+
+a.header-link:hover,
+.header-link > a:hover {
+  color: white;                       /* Hover text color */
+  border-color: white;                /* Hover border color */
+}
+
+.header .dropdown-menu,
+.header .dropdown-item {
+  color: black;                       /* Dropdown text */
+  background-color: white;            /* Dropdown background */
+}
+
+.header .dropdown-item a:hover {
+  border: 1px rgb(33, 37, 41) solid; /* Hover border for dropdown items */
+}
+
+.sub-header {
+  background-color: #232f3e;          /* Dark sub-header background */
+}
+
+/* -------------------- Cart Badge -------------------- */
+.cart-badge {
+  position: absolute; /* Positioned relative to cart icon */
+  color: #f08000;     /* Orange/marigold badge */
+  font-weight: bold;  /* Bold text */
+  margin-left: 16px;  /* Horizontal spacing */
+  margin-top: -3px;   /* Vertical alignment */
+}
+
+/* -------------------- Sidebar -------------------- */
+.side-navbar-backdrop {
+  position: fixed;      /* Cover whole screen */
+  z-index: 1;           /* Below sidebar */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;       /* Allow scrolling */
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+}
+
+.side-navbar {
+  width: 340px;
+  height: 100%;
+  position: absolute;
+  left: -350px;         /* Hidden by default */
+  background-color: #f5f5f5; /* Sidebar background */
+  transition: 0.5s;     /* Smooth slide in/out */
+  z-index: 2;           /* Above backdrop */
+}
+
+.active-nav {
+  left: 0;              /* Slide sidebar into view */
+}
+
+.side-navbar-user {
+  background-color: #232f3e; /* Dark user section */
+  color: white;
+  font-weight: bold;
+}
+
+button.side-navbar-user:hover {
+  color: white;         /* Hover effect */
+}
+
+/* -------------------- Dropdown Alignment (Bootstrap) -------------------- */
+.dropdown-menu[data-bs-popper] {
+  left: auto;  /* Align dropdown to right */
+  right: 0;
+}
